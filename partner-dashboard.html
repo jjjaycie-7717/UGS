@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分销中心 - 推广看板</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <a href="index.html" class="flex items-center hover:opacity-80">
+                    <img src="白色logo.png" alt="CreBee" class="h-8 w-auto mr-3">
+                    <span class="text-xl font-bold text-gray-800">分销中心</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <a href="partner-wallet.html" class="text-gray-600 hover:text-gray-800">
+                        <i class="fas fa-wallet mr-1 text-orange-500"></i>钱包
+                    </a>
+                    <a href="commission-list.html" class="text-gray-600 hover:text-gray-800">
+                        <i class="fas fa-list mr-1 text-orange-500"></i>佣金流水
+                    </a>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-user-circle text-2xl text-gray-400"></i>
+                        <span class="text-gray-700">合作方001</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">推广数据看板</h1>
+            <p class="text-gray-500 mt-2">实时查看您的推广效果</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-orange-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">已邀请人数</p>
+                        <p class="text-3xl font-bold text-gray-800 mt-2">1,234</p>
+                    </div>
+                    <i class="fas fa-users text-4xl text-orange-500"></i>
+                </div>
+                <p class="text-sm text-green-600 mt-4">
+                    <i class="fas fa-arrow-up mr-1"></i>较上月 +12%
+                </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-amber-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">试用中人数</p>
+                        <p class="text-3xl font-bold text-gray-800 mt-2">1200</p>
+                    </div>
+                    <i class="fas fa-clock text-4xl text-yellow-500"></i>
+                </div>
+                <p class="text-sm text-gray-600 mt-4">
+                    <i class="fas fa-info-circle mr-1"></i>等待转化
+                </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-lime-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">已转化人数</p>
+                        <p class="text-3xl font-bold text-gray-800 mt-2">89</p>
+                    </div>
+                    <i class="fas fa-check-circle text-4xl text-green-500"></i>
+                </div>
+                <p class="text-sm text-green-600 mt-4">
+                    <i class="fas fa-arrow-up mr-1"></i>转化率 7.2%
+                </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-orange-600">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500 text-sm">累计预估佣金</p>
+                        <p class="text-3xl font-bold text-gray-800 mt-2">¥12,580</p>
+                    </div>
+                    <i class="fas fa-coins text-4xl text-orange-600"></i>
+                </div>
+                <p class="text-sm text-gray-600 mt-4">
+                    <i class="fas fa-wallet mr-1"></i>可提现 ¥8,920
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-gray-800">
+                        <i class="fas fa-qrcode mr-2 text-orange-500"></i>我的邀请码
+                    </h2>
+                    <button class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
+                        <i class="fas fa-copy mr-2"></i>复制
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-orange-500 to-amber-500 rounded-lg p-8 text-center">
+                    <div class="text-3xl font-bold text-white mb-2">ABC123</div>
+                    <p class="text-orange-100 text-xs">专属邀请码</p>
+                </div>
+                <div class="mt-6 space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+                        <span class="text-gray-600">推广链接</span>
+                        <div class="flex items-center space-x-2">
+                            <code class="text-sm text-gray-800">https://example.com/invite/ABC123</code>
+                            <button class="text-orange-600 hover:text-orange-800">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+                        <span class="text-gray-600">推广二维码</span>
+                        <button class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+                            <i class="fas fa-download mr-2"></i>下载
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-chart-bar mr-2 text-orange-500"></i>推广趋势
+                </h2>
+                <div class="border border-gray-200 rounded p-4 flex flex-col gap-3 overflow-hidden">
+                    <div class="flex justify-between text-xs text-gray-500">
+                        <span>近7天</span>
+                        <span>邀请/转化趋势</span>
+                        <span>更新于 10:30</span>
+                    </div>
+                    <div class="relative h-48">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-6">
+                <i class="fas fa-table mr-2 text-orange-500"></i>最近邀请记录
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">用户</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">注册时间</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">会员到期</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <i class="fas fa-user-circle text-2xl text-gray-400 mr-2"></i>
+                                    <span class="text-sm text-gray-900">用户****1234</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-15 10:30</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">试用中</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-02-15</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <i class="fas fa-user-circle text-2xl text-gray-400 mr-2"></i>
+                                    <span class="text-sm text-gray-900">用户****5678</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2024-01-10 14:20</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">已转化</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        const ctx = document.getElementById('trendChart');
+        const labels = ['周一','周二','周三','周四','周五','周六','周日'];
+        const invites = [120, 150, 180, 210, 240, 260, 300];
+        const conversions = [20, 28, 35, 40, 48, 55, 68];
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [
+                    {
+                        label: '邀请',
+                        data: invites,
+                        borderColor: '#fb923c',
+                        backgroundColor: 'rgba(251, 146, 60, 0.15)',
+                        borderWidth: 2,
+                        tension: 0.35,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#f97316'
+                    },
+                    {
+                        label: '转化',
+                        data: conversions,
+                        borderColor: '#22c55e',
+                        backgroundColor: 'rgba(34, 197, 94, 0.15)',
+                        borderWidth: 2,
+                        tension: 0.35,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#16a34a'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            boxWidth: 12,
+                            usePointStyle: true
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(209, 213, 219, 0.5)',
+                            borderDash: [4, 4]
+                        },
+                        ticks: {
+                            color: '#6b7280'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#6b7280'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

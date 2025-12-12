@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 - 财务对账</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <a href="index.html" class="flex items-center hover:opacity-80">
+                    <img src="白色logo.png" alt="CreBee" class="h-8 w-auto mr-3">
+                    <span class="text-xl font-bold text-gray-800">财务对账</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <a href="admin-partners.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-shield-alt mr-1 text-orange-500"></i>管理后台</a>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-user-shield text-2xl text-gray-400"></i>
+                        <span class="text-gray-700">管理员</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">财务对账与统计</h1>
+                <p class="text-gray-500 mt-2">佣金支出 vs 实际营收，退款扣回</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex space-x-3">
+                <input type="date" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                <input type="date" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                <button class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600"><i class="fas fa-filter mr-2"></i>筛选</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-orange-500">
+                <p class="text-sm text-gray-500">总营收</p>
+                <p class="text-3xl font-bold text-gray-800 mt-2">¥185,000</p>
+                <p class="text-sm text-green-600 mt-2"><i class="fas fa-arrow-up mr-1"></i>环比 +8%</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
+                <p class="text-sm text-gray-500">佣金支出</p>
+                <p class="text-3xl font-bold text-gray-800 mt-2">¥28,300</p>
+                <p class="text-sm text-gray-600 mt-2">占比 15.3%</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-yellow-500">
+                <p class="text-sm text-gray-500">退款金额</p>
+                <p class="text-3xl font-bold text-gray-800 mt-2">¥2,560</p>
+                <p class="text-sm text-gray-600 mt-2">已扣回佣金 ¥512</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-amber-600">
+                <p class="text-sm text-gray-500">净收益</p>
+                <p class="text-3xl font-bold text-gray-800 mt-2">¥154,140</p>
+                <p class="text-sm text-gray-600 mt-2">含已结算佣金</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-gray-800"><i class="fas fa-chart-line mr-2 text-orange-500"></i>营收与佣金趋势</h2>
+                    <button class="px-3 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100">导出</button>
+                </div>
+                <div class="h-64">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-gray-800"><i class="fas fa-pie-chart mr-2 text-orange-500"></i>渠道贡献占比</h2>
+                    <button class="px-3 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100">导出</button>
+                </div>
+                <div class="h-64 flex items-center justify-center">
+                    <canvas id="channelChart" class="max-h-60"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow p-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h2 class="text-xl font-bold text-gray-800 flex items-center"><i class="fas fa-table mr-2 text-orange-500"></i>对账明细</h2>
+                <div class="mt-3 md:mt-0 flex space-x-3">
+                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                        <option>全部</option>
+                        <option>续费订单</option>
+                        <option>退款订单</option>
+                        <option>佣金入账</option>
+                        <option>佣金扣回</option>
+                    </select>
+                    <button class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600"><i class="fas fa-filter mr-2"></i>筛选</button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">类型</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">金额</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">关联订单/佣金</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">备注</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">2024-01-15 10:30</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">续费订单</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">+ ¥88</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">订单 20240115001</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">合作方001 保护期内</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">2024-01-15 10:30</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">佣金入账</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">- ¥17.6</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">佣金 CM20240115001</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">结算期7天后入账</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">2024-01-06 09:00</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">退款订单</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">- ¥88</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">订单 20240105003</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">退款同步扣回佣金</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">2024-01-06 09:00</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">佣金扣回</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">+ ¥6.4</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">佣金 CM20240105002</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">退款7天内扣回</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        const revenueGradient = revenueCtx.createLinearGradient(0, 0, 0, 240);
+        revenueGradient.addColorStop(0, 'rgba(249,115,22,0.35)');
+        revenueGradient.addColorStop(1, 'rgba(249,115,22,0)');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: ['01-01','01-03','01-05','01-07','01-09','01-11','01-13','01-15'],
+                datasets: [
+                    {
+                        label: '总营收',
+                        data: [18000, 20500, 22000, 21500, 24000, 26000, 27500, 28500],
+                        borderColor: '#f97316',
+                        backgroundColor: revenueGradient,
+                        fill: true,
+                        tension: 0.35,
+                        pointRadius: 3
+                    },
+                    {
+                        label: '佣金支出',
+                        data: [2600, 2900, 3100, 3000, 3300, 3450, 3600, 3700],
+                        borderColor: '#22c55e',
+                        backgroundColor: 'rgba(34,197,94,0.1)',
+                        fill: true,
+                        tension: 0.35,
+                        pointRadius: 3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: { mode: 'index', intersect: false }
+                },
+                interaction: { mode: 'index', intersect: false },
+                scales: {
+                    y: { beginAtZero: true, ticks: { callback: v => '¥' + v.toLocaleString() } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+        const channelCtx = document.getElementById('channelChart').getContext('2d');
+        new Chart(channelCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['直销','合作方A','合作方B','渠道分销','广告引流'],
+                datasets: [{
+                    data: [42, 24, 16, 12, 6],
+                    backgroundColor: ['#f97316','#22c55e','#6366f1','#06b6d4','#facc15'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: '60%',
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: { callbacks: { label: ctx => ctx.label + '：' + ctx.parsed + '%' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 - 管理后台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <a href="index.html" class="flex items-center hover:opacity-80">
+                    <img src="白色logo.png" alt="CreBee" class="h-8 w-auto mr-3">
+                    <span class="text-xl font-bold text-gray-800">管理后台</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <a href="admin-finance.html" class="text-gray-600 hover:text-gray-800"><i class="fas fa-file-invoice-dollar mr-1 text-orange-500"></i>财务对账</a>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-user-shield text-2xl text-gray-400"></i>
+                        <span class="text-gray-700">管理员</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">管理后台</h1>
+            </div>
+            <div class="mt-4 md:mt-0 flex space-x-3">
+                <button id="btnReviewEntry" class="px-4 py-2 border border-orange-500 text-orange-600 rounded-lg hover:bg-orange-50"><i class="fas fa-clipboard-check mr-2"></i>审核入口</button>
+                <button id="btnCommission" class="px-4 py-2 border border-amber-500 text-amber-600 rounded-lg hover:bg-amber-50"><i class="fas fa-coins mr-2"></i>佣金设置</button>
+                <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100"><i class="fas fa-rotate-right mr-2"></i>刷新</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <div class="bg-white rounded-lg shadow p-5 border-l-4 border-orange-500">
+                <p class="text-sm text-gray-500">待审核</p>
+                <p class="text-3xl font-bold text-gray-800 mt-2">12</p>
+                <p class="text-sm text-gray-600 mt-2">今日新增 3</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-5 border-l-4 border-green-500">
+                <p class="text-sm text-gray-500">合作方总数</p>
+                <p class="text-3xl font-bold text-gray-800 mt-2">356</p>
+                <p class="text-sm text-gray-600 mt-2">活跃 280</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-5 border-l-4 border-blue-500">
+                <p class="text-sm text-gray-500">转化总数</p>
+                <p class="text-3xl font-bold text-gray-800 mt-2">1,245</p>
+                <p class="text-sm text-gray-600 mt-2">近7天 86</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow p-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <div class="flex flex-wrap gap-3">
+                    <input type="text" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="搜索合作方/邀请码">
+                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                        <option>排序：注册时间</option>
+                        <option>邀请人数</option>
+                        <option>转化人数</option>
+                        <option>累计佣金</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">合作方</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邀请码</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">邀请/转化</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">累计佣金</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">审核状态</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">合作方001</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">ABC123</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">1200 / 85</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">¥12,580</td>
+                            <td class="px-6 py-4 text-sm">
+                                <span class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs font-semibold">待审核</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">合作方009</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">XYZ789</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">80 / 2</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">¥320</td>
+                            <td class="px-6 py-4 text-sm">
+                                <span class="px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">已通过</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">合作方102</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">JKL555</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">300 / 12</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">¥2,200</td>
+                            <td class="px-6 py-4 text-sm">
+                                <span class="px-2 py-1 rounded-full bg-red-100 text-red-700 text-xs font-semibold">已驳回</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="reviewModal" class="fixed inset-0 bg-black/50 flex items-center justify-center px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-3xl">
+            <div class="flex items-center justify-between px-6 py-4 border-b">
+                <h3 class="text-lg font-bold text-gray-800">待审核合作方</h3>
+                <button id="btnCloseReview" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="p-6">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr class="text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th class="px-4 py-3">
+                                    <input id="chkAllReview" type="checkbox" class="h-4 w-4 text-orange-500 border-gray-300 rounded">
+                                </th>
+                                <th class="px-4 py-3 text-left">合作方</th>
+                                <th class="px-4 py-3 text-left">邀请码</th>
+                                <th class="px-4 py-3 text-left">提交时间</th>
+                                <th class="px-4 py-3 text-left">备注</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200 text-sm">
+                            <tr>
+                                <td class="px-4 py-3">
+                                    <input type="checkbox" class="review-item h-4 w-4 text-orange-500 border-gray-300 rounded" data-id="合作方001">
+                                </td>
+                                <td class="px-4 py-3 text-gray-900">合作方001</td>
+                                <td class="px-4 py-3 text-gray-700">ABC123</td>
+                                <td class="px-4 py-3 text-gray-700">2024-02-10 10:30</td>
+                                <td class="px-4 py-3 text-gray-500">资料已上传</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">
+                                    <input type="checkbox" class="review-item h-4 w-4 text-orange-500 border-gray-300 rounded" data-id="合作方009">
+                                </td>
+                                <td class="px-4 py-3 text-gray-900">合作方009</td>
+                                <td class="px-4 py-3 text-gray-700">XYZ789</td>
+                                <td class="px-4 py-3 text-gray-700">2024-02-10 09:15</td>
+                                <td class="px-4 py-3 text-gray-500">补充营业执照</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">
+                                    <input type="checkbox" class="review-item h-4 w-4 text-orange-500 border-gray-300 rounded" data-id="合作方102">
+                                </td>
+                                <td class="px-4 py-3 text-gray-900">合作方102</td>
+                                <td class="px-4 py-3 text-gray-700">JKL555</td>
+                                <td class="px-4 py-3 text-gray-700">2024-02-09 18:05</td>
+                                <td class="px-4 py-3 text-gray-500">高优先级</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="flex items-center justify-end space-x-3 px-6 py-4 border-t">
+                <button id="btnBatchApprove" class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600">批量通过</button>
+                <button id="btnCancelReview" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="commissionModal" class="fixed inset-0 bg-black/50 flex items-center justify-center px-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-xl">
+            <div class="flex items-center justify-between px-6 py-4 border-b">
+                <h3 class="text-lg font-bold text-gray-800">佣金设置</h3>
+                <button id="btnCloseCommission" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">佣金比例 (%)</label>
+                    <input id="commissionBase" type="number" min="0" max="100" value="10" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-600 mb-1">备注</label>
+                    <textarea id="commissionNote" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="说明本次佣金调整原因"></textarea>
+                </div>
+            </div>
+            <div class="flex items-center justify-end space-x-3 px-6 py-4 border-t">
+                <button id="btnSaveCommission" class="px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600">保存</button>
+                <button id="btnCancelCommission" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100">取消</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+const modal = document.getElementById('reviewModal');
+const toggleModal = (show) => {
+    if (!modal) return;
+    modal.classList.toggle('hidden', !show);
+};
+document.getElementById('btnAddPartner')?.addEventListener('click', () => {
+    alert('打开新增合作方表单：填写基本信息、合同与结算方式。');
+});
+document.getElementById('btnReviewEntry')?.addEventListener('click', () => toggleModal(true));
+document.getElementById('btnCloseReview')?.addEventListener('click', () => toggleModal(false));
+document.getElementById('btnCancelReview')?.addEventListener('click', () => toggleModal(false));
+document.getElementById('chkAllReview')?.addEventListener('change', (e) => {
+    document.querySelectorAll('.review-item').forEach((cb) => { cb.checked = e.target.checked; });
+});
+document.getElementById('btnBatchApprove')?.addEventListener('click', () => {
+    const ids = Array.from(document.querySelectorAll('.review-item:checked')).map((cb) => cb.dataset.id);
+    if (!ids.length) return alert('请选择待审核项');
+    alert(`已通过：${ids.join('、')}`);
+    toggleModal(false);
+});
+modal?.addEventListener('click', (e) => {
+    if (e.target === modal) toggleModal(false);
+});
+
+const commissionModal = document.getElementById('commissionModal');
+const toggleCommission = (show) => {
+    if (!commissionModal) return;
+    commissionModal.classList.toggle('hidden', !show);
+};
+document.getElementById('btnCommission')?.addEventListener('click', () => toggleCommission(true));
+document.getElementById('btnCloseCommission')?.addEventListener('click', () => toggleCommission(false));
+document.getElementById('btnCancelCommission')?.addEventListener('click', () => toggleCommission(false));
+document.getElementById('btnSaveCommission')?.addEventListener('click', () => {
+    const base = document.getElementById('commissionBase')?.value || '';
+    alert(`已保存：基础${base}%`);
+    toggleCommission(false);
+});
+commissionModal?.addEventListener('click', (e) => {
+    if (e.target === commissionModal) toggleCommission(false);
+});
+</script>
+</html>
+

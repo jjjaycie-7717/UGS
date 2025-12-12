@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分销中心 - 钱包</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <a href="index.html" class="flex items-center hover:opacity-80">
+                    <img src="白色logo.png" alt="CreBee" class="h-8 w-auto mr-3">
+                    <span class="text-xl font-bold text-gray-800">分销中心</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <a href="partner-dashboard.html" class="text-gray-600 hover:text-gray-800">
+                        <i class="fas fa-chart-line mr-1 text-orange-500"></i>看板
+                    </a>
+                    <a href="commission-list.html" class="text-gray-600 hover:text-gray-800">
+                        <i class="fas fa-list mr-1 text-orange-500"></i>佣金流水
+                    </a>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-user-circle text-2xl text-gray-400"></i>
+                        <span class="text-gray-700">合作方001</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">钱包中心</h1>
+                <p class="text-gray-500 mt-2">查看余额与申请提现</p>
+            </div>
+            <a href="partner-dashboard.html" class="text-orange-600 hover:text-orange-800 flex items-center mt-4 md:mt-0">
+                <i class="fas fa-arrow-left mr-2"></i>返回看板
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-orange-500">
+                <p class="text-gray-500 text-sm">可提现余额</p>
+                <p class="text-4xl font-bold text-gray-800 mt-3">¥8,920</p>
+                <p class="text-sm text-green-600 mt-3"><i class="fas fa-arrow-up mr-1"></i>本月新增 ¥1,250</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
+                <p class="text-gray-500 text-sm">在途结算</p>
+                <p class="text-4xl font-bold text-gray-800 mt-3">¥3,660</p>
+                <p class="text-sm text-gray-600 mt-3">结算中：2 笔</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-purple-500">
+                <p class="text-gray-500 text-sm">累计佣金</p>
+                <p class="text-4xl font-bold text-gray-800 mt-3">¥12,580</p>
+                <p class="text-sm text-gray-600 mt-3">总提现 3 次</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow p-6 lg:col-span-2">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-gray-800"><i class="fas fa-table mr-2 text-orange-500"></i>提现记录</h2>
+                    <button class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600">
+                        <i class="fas fa-rotate-right mr-2"></i>刷新
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">时间</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">金额</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">收款账户</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 text-sm text-gray-900">2024-01-25 12:30</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">¥3,000</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">微信-尾号8899</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">已到账</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm text-gray-900">2024-01-20 09:10</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">¥2,500</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">支付宝-尾号1122</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">审核中</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-6"><i class="fas fa-hand-holding-usd mr-2 text-orange-500"></i>申请提现</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm text-gray-700 mb-2">提现金额</label>
+                        <input type="number" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="输入金额，最低100">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-700 mb-2">收款账户</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <option>微信 - 尾号8899</option>
+                            <option>支付宝 - 尾号1122</option>
+                            <option>银行卡 - 尾号5566</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-700 mb-2">备注</label>
+                        <textarea class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" rows="3" placeholder="可填写收款说明"></textarea>
+                    </div>
+                    <button class="w-full py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600">
+                        提交申请
+                    </button>
+                </div>
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg text-sm text-gray-600">
+                    <p>结算周期：T+7，防止退款风险。</p>
+                    <p>支持渠道：微信/支付宝/银行卡。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

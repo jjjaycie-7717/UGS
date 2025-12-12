@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户增长系统 - 控制台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-orange-50 to-amber-100 min-h-screen">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-80">
+                <img src="白色logo.png" alt="CreBee" class="h-8 w-auto">
+                <span class="text-xl font-bold text-gray-800">用户增长系统</span>
+            </a>
+            <div class="flex items-center space-x-4 text-gray-600">
+                <i class="fas fa-bell"></i>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-user-circle text-2xl text-gray-400"></i>
+                    <span>已登录</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">欢迎回来</h1>
+            <p class="text-gray-600 mt-2">选择入口开始操作</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="partner-dashboard.html" class="group bg-white rounded-2xl shadow hover:shadow-lg transition p-6 border border-transparent hover:border-orange-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-orange-600 font-semibold">分销中心</p>
+                        <h2 class="text-2xl font-bold text-gray-800 mt-2">合作方入口</h2>
+                        <p class="text-gray-500 mt-2 text-sm">邀请码生成、推广看板、钱包提现。</p>
+                    </div>
+                    <div class="p-4 bg-orange-50 rounded-xl text-orange-600">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center text-orange-600 text-sm">
+                    <span class="group-hover:underline">进入分销中心</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </div>
+            </a>
+
+            <a href="user-center.html" class="group bg-white rounded-2xl shadow hover:shadow-lg transition p-6 border border-transparent hover:border-orange-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-orange-600 font-semibold">用户会员</p>
+                        <h2 class="text-2xl font-bold text-gray-800 mt-2">会员中心</h2>
+                        <p class="text-gray-500 mt-2 text-sm">查看权益、到期提醒、续费订单。</p>
+                    </div>
+                    <div class="p-4 bg-orange-50 rounded-xl text-orange-600">
+                        <i class="fas fa-crown text-2xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center text-orange-600 text-sm">
+                    <span class="group-hover:underline">进入会员中心</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </div>
+            </a>
+
+            <a href="admin-partners.html" class="group bg-white rounded-2xl shadow hover:shadow-lg transition p-6 border border-transparent hover:border-orange-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-orange-600 font-semibold">管理后台</p>
+                        <h2 class="text-2xl font-bold text-gray-800 mt-2">风控与财务</h2>
+                        <p class="text-gray-500 mt-2 text-sm">合作方审核、防刷、财务对账。</p>
+                    </div>
+                    <div class="p-4 bg-orange-50 rounded-xl text-orange-600">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center text-orange-600 text-sm">
+                    <span class="group-hover:underline">进入管理后台</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </div>
+            </a>
+        </div>
+    </main>
+</body>
+</html>
+
